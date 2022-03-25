@@ -1,3 +1,23 @@
-h1 {
+.header {
   text-align: center;
+}
+
+.fa-sun {
+  color: yellow;
+}
+
+.fa-cloud {
+  color: aqua;
+}
+
+.fa-cloud-sun {
+  color: aquamarine;
+}
+
+ul {
+  list-style: none;
+}
+
+h4 {
+  opacity: 65%;
 }
