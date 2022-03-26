@@ -20,73 +20,80 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="header">Weather Finder</h1>
-      <div>
-        <form id="city-input">
-          <input type="text" id="user-city-input" placeholder="Enter a City" />
-          <input type="submit" />
-        </form>
-      </div>
+      <div class="weather-app">
+        <h1 class="header">Weather Finder</h1>
+        <div>
+          <form id="city-input">
+            <input
+              type="text"
+              id="user-city-input"
+              placeholder="Enter a City"
+            />
+            <input type="submit" />
+          </form>
+        </div>
+        <hr />
 
-      <div class="row">
-        <div class="col-4">
-          <ul>
-            <li>
-              <h1><i class="fa-solid fa-sun"></i> Tampa</h1>
-            </li>
-            <li><h3>75 °F/°C</h3></li>
-            <li><h4 class="faded">80°F/65°F</h4></li>
-          </ul>
+        <div class="city-title">
+          <h1><i class="fa-solid fa-sun"></i> Tampa</h1>
         </div>
-        <div class="col-4">
-          <ul>
-            <li>Precipitation: 10%</li>
-            <li>Humidity: 65%</li>
-            <li>Wind: 4 MPH</li>
-          </ul>
+        <div class="row">
+          <div class="col-6">
+            <ul class="temp">
+              <li><h3>75 °F|°C</h3></li>
+              <li><h4 class="faded">80°F/65°F</h4></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="patterns">
+              <li>Precipitation: 10%</li>
+              <li>Humidity: 65%</li>
+              <li>Wind: 4 MPH</li>
+            </ul>
+          </div>
         </div>
+        <hr />
+
+        <div class="row">
+          <div class="col-2">
+            <h3 class="forecast">Mon</h3>
+            <h4>80°F/65°F</h4>
+            <h5><i class="fa-solid fa-cloud"></i></h5>
+          </div>
+          <div class="col-2">
+            <h3 class="forecast">Tues</h3>
+            <h4>80°F/65°F</h4>
+            <h4><i class="fa-solid fa-cloud-sun"></i></h4>
+          </div>
+          <div class="col-2">
+            <h3 class="forecast">Wed</h3>
+            <h4>80°F/65°F</h4>
+            <h4><i class="fa-solid fa-cloud-sun"></i></h4>
+          </div>
+          <div class="col-2">
+            <h3 class="forecast">Thurs</h3>
+            <h4>80°F/65°F</h4>
+            <h4><i class="fa-solid fa-cloud-sun"></i></h4>
+          </div>
+          <div class="col-2">
+            <h3 class="forecast">Fri</h3>
+            <h4>80°F/65°F</h4>
+            <h4><i class="fa-solid fa-cloud-sun"></i></h4>
+          </div>
+          <div class="col-2">
+            <h3 class="forecast">Sat</h3>
+            <h4>80°F/65°F</h4>
+            <h4><i class="fa-solid fa-cloud-sun"></i></h4>
+          </div>
+        </div>
+        <div class="footer">
+          <a href="https://github.com/elphaba787/WeatherAppFinal" target="blank"
+            >Open source code
+          </a>
+          created by Deborah Thompson
+        </div>
+        <script src="src/app.js"></script>
       </div>
-      <hr />
-      <!--Add the columns for the 7 day forecast. Maybe use the cards from Bootstrap-->
-      <div class="row">
-        <div class="col-2">
-          <h3 class="forecast">Mon</h3>
-          <h4>80°F/65°F</h4>
-          <h5><i class="fa-solid fa-cloud"></i></h5>
-        </div>
-        <div class="col-2">
-          <h3 class="forecast">Tues</h3>
-          <h4>80°F/65°F</h4>
-          <h4><i class="fa-solid fa-cloud-sun"></i></h4>
-        </div>
-        <div class="col-2">
-          <h3 class="forecast">Wed</h3>
-          <h4>80°F/65°F</h4>
-          <h4><i class="fa-solid fa-cloud-sun"></i></h4>
-        </div>
-        <div class="col-2">
-          <h3 class="forecast">Thurs</h3>
-          <h4>80°F/65°F</h4>
-          <h4><i class="fa-solid fa-cloud-sun"></i></h4>
-        </div>
-        <div class="col-2">
-          <h3 class="forecast">Fri</h3>
-          <h4>80°F/65°F</h4>
-          <h4><i class="fa-solid fa-cloud-sun"></i></h4>
-        </div>
-        <div class="col-2">
-          <h3 class="forecast">Sat</h3>
-          <h4>80°F/65°F</h4>
-          <h4><i class="fa-solid fa-cloud-sun"></i></h4>
-        </div>
-      </div>
-      <div class="footer">
-        <a href="https://github.com/elphaba787/WeatherAppFinal" target="blank"
-          >Open source code
-        </a>
-        created by Deborah Thompson
-      </div>
-      <script src="src/app.js"></script>
     </div>
   </body>
 </html>

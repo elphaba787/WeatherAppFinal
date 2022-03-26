@@ -1,5 +1,9 @@
+.city-title {
+  text-align: center;
+}
 .header {
   text-align: center;
+  margin-top: 20px;
 }
 
 .fa-sun {
@@ -13,11 +17,31 @@
 .fa-cloud-sun {
   color: aquamarine;
 }
-
-ul {
-  list-style: none;
+.footer {
+  font-size: small;
+}
+.patterns {
+  text-align: center;
+}
+.temp {
+  text-align: center;
+}
+.weather-app {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+#city-input {
+  margin-left: 20px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h4 {
   opacity: 65%;
+}
+ul {
+  list-style: none;
 }
