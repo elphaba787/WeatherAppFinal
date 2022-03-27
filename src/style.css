@@ -44,12 +44,22 @@
 #city-input {
   margin-left: 20px;
 }
+
+#city-name {
+  text-transform: capitalize;
+}
 #current-temp {
   text-align: center;
   font-size: 32px;
 }
 #current-temp-degrees {
   text-align: center;
+}
+#humid {
+}
+#rain {
+}
+#wind {
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
