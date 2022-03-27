@@ -19,6 +19,15 @@ function displayInfomation(response) {
   tempElement.innerHTML = Math.round(celciusTemp);
 }
 
+function search(city) {
+  let cityName = city;
+
+  let apiKey = "58852fb69388463e1271f80d4fc7e8f6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayInfomation);
+}
+
 function cityButton(event) {
   event.preventDefault();
 
@@ -26,6 +35,7 @@ function cityButton(event) {
   let cityHeading = document.querySelector("#city-name");
 
   cityHeading.innerHTML = cityName.value;
+  search(cityName.value);
 }
 
 function changeToCelcius(event) {
@@ -45,6 +55,9 @@ function changeToFahrenheit(event) {
   tempElement.innerHTML = Math.round(celciusTemp);
 }
 
+let celciusTemp = null;
+let fahrenheitTemp = null;
+
 let form = document.querySelector("#city-input");
 form.addEventListener("submit", cityButton);
 
@@ -54,10 +67,4 @@ fahrenheitChange.addEventListener("click", changeToCelcius);
 let celciusChange = document.querySelector("#celcius");
 celciusChange.addEventListener("click", changeToFahrenheit);
 
-let cityName = "Tampa";
-let celciusTemp = null;
-let fahrenheitTemp = null;
-let apiKey = "58852fb69388463e1271f80d4fc7e8f6";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(displayInfomation);
+search("Tampa");
