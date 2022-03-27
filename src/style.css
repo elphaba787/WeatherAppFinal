@@ -55,11 +55,8 @@
 #current-temp-degrees {
   text-align: center;
 }
-#humid {
-}
-#rain {
-}
-#wind {
+#description {
+  text-transform: capitalize;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
