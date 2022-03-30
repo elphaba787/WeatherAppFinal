@@ -5,6 +5,10 @@ function displayInfomation(response) {
   let humidElement = document.querySelector("#humid");
   let descriptionElement = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
+  let apiKey = "58852fb69388463e1271f80d4fc7e8f6";
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=metric`;
 
   celciusTemp = response.data.main.temp;
   cityElement.innerHTML = response.data.name;
@@ -17,6 +21,8 @@ function displayInfomation(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   tempElement.innerHTML = Math.round(celciusTemp);
+
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 function search(city) {
@@ -54,24 +60,36 @@ function changeToFahrenheit(event) {
 
   tempElement.innerHTML = Math.round(celciusTemp);
 }
-
-function displayForecast() {
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tues", "Wed", "Thurs"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="col-2">
-        <h3 id="weekday">${day}</h3>
-        <h4>
-          <img src=" " alt="weather icon" id="icon" />
-        </h4>
-        <span id="forecast-high">80°F</span>/<span id="forecast-low">65°F</span>
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2" id="forecast">
+        <h4 id="weekday">${formatForecastDay(forecastDay.dt)}</h4>
+        <img src="https://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"  alt="weather icon" id="icon" />
+        <div><span id="forecast-high">${Math.round(
+          forecastDay.temp.max
+        )}°C</span>/<span id="forecast-low">${Math.round(
+          forecastDay.temp.min
+        )}°C</span>
+        </div>
       </div>
-  `;
+    `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -91,4 +109,3 @@ let celciusChange = document.querySelector("#celcius");
 celciusChange.addEventListener("click", changeToFahrenheit);
 
 search("Tampa");
-displayForecast();
