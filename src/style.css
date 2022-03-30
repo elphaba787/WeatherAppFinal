@@ -58,6 +58,13 @@
 #description {
   text-transform: capitalize;
 }
+#forecast-high {
+  font-size: 15px;
+}
+
+#forecast-low {
+  font-size: 14px;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

@@ -55,6 +55,29 @@ function changeToFahrenheit(event) {
   tempElement.innerHTML = Math.round(celciusTemp);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tues", "Wed", "Thurs"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <h3 id="weekday">${day}</h3>
+        <h4>
+          <img src=" " alt="weather icon" id="icon" />
+        </h4>
+        <span id="forecast-high">80°F</span>/<span id="forecast-low">65°F</span>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celciusTemp = null;
 let fahrenheitTemp = null;
 
@@ -68,3 +91,4 @@ let celciusChange = document.querySelector("#celcius");
 celciusChange.addEventListener("click", changeToFahrenheit);
 
 search("Tampa");
+displayForecast();
