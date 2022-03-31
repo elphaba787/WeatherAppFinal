@@ -20,7 +20,7 @@ function displayInfomation(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  tempElement.innerHTML = Math.round(celciusTemp);
+  tempElement.innerHTML = Math.round(celciusTemp) + " °C";
 
   axios.get(apiUrlForecast).then(displayForecast);
 }
@@ -44,22 +44,6 @@ function cityButton(event) {
   search(cityName.value);
 }
 
-function changeToCelcius(event) {
-  event.preventDefault();
-
-  let changeCelcius = (celciusTemp * 9) / 5 + 32;
-  let tempElement = document.querySelector("#current-temp");
-
-  tempElement.innerHTML = Math.round(changeCelcius);
-}
-
-function changeToFahrenheit(event) {
-  event.preventDefault();
-
-  let tempElement = document.querySelector("#current-temp");
-
-  tempElement.innerHTML = Math.round(celciusTemp);
-}
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -96,16 +80,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-let celciusTemp = null;
-let fahrenheitTemp = null;
-
 let form = document.querySelector("#city-input");
 form.addEventListener("submit", cityButton);
-
-let fahrenheitChange = document.querySelector("#fahrenheit");
-fahrenheitChange.addEventListener("click", changeToCelcius);
-
-let celciusChange = document.querySelector("#celcius");
-celciusChange.addEventListener("click", changeToFahrenheit);
 
 search("Tampa");
